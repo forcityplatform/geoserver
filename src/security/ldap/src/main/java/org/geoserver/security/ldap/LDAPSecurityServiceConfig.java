@@ -16,7 +16,9 @@ public class LDAPSecurityServiceConfig extends LDAPBaseSecurityServiceConfig
     
     String userGroupServiceName;
     
-    
+    String bindUsername;
+
+    String bindPassword;
      
     // format username before doing authentication using the given format
     String userFormat; 
@@ -29,6 +31,8 @@ public class LDAPSecurityServiceConfig extends LDAPBaseSecurityServiceConfig
         userDnPattern = other.getUserDnPattern();        
         userGroupServiceName = other.getUserGroupServiceName();        
         userFormat = other.getUserFormat();
+        bindUsername = other.getBindUsername();
+        bindPassword = other.getBindPassword();
     }
     
 
@@ -40,7 +44,13 @@ public class LDAPSecurityServiceConfig extends LDAPBaseSecurityServiceConfig
         this.userFormat = userFormat;
     }
 
-    
+    public String getBindUsername() { return bindUsername; }
+
+    public void setBindUsername(String bindUsername) { this.bindUsername = bindUsername; }
+
+    public String getBindPassword() { return bindPassword; }
+
+    public void setBindPassword(String bindPassword) { this.bindPassword = bindPassword; }
 
     public String getUserDnPattern() {
         return userDnPattern;
