@@ -55,6 +55,11 @@ public class LDAPAuthProviderPanel extends AuthenticationProviderPanel<LDAPSecur
         add(new TextField("userDnPattern"));
         add(new TextField("userFilter"));
         add(new TextField("userFormat"));
+        add(new TextField("bindUsername"));
+        PasswordTextField pwdField = new PasswordTextField("bindPassword");
+        pwdField.setResetPassword(false);
+        pwdField.setRequired(false);
+        add(pwdField);
 
         boolean useLdapAuth = model.getObject().getUserGroupServiceName() == null;
         add(new AjaxCheckBox("useLdapAuthorization", new Model(useLdapAuth)) {
@@ -152,7 +157,9 @@ public class LDAPAuthProviderPanel extends AuthenticationProviderPanel<LDAPSecur
                     ((FormComponent)LDAPAuthProviderPanel.this.get("userDnPattern")).processInput();
                     ((FormComponent)LDAPAuthProviderPanel.this.get("userFilter")).processInput();
                     ((FormComponent)LDAPAuthProviderPanel.this.get("userFormat")).processInput();
-                    
+                    ((FormComponent)LDAPAuthProviderPanel.this.get("bindUsername")).processInput();
+                    ((FormComponent)LDAPAuthProviderPanel.this.get("bindPassword")).processInput();
+
                     String username = (String)((FormComponent)TestLDAPConnectionPanel.this.get("username")).getConvertedInput();
                     String password = (String)((FormComponent)TestLDAPConnectionPanel.this.get("password")).getConvertedInput();
                     
