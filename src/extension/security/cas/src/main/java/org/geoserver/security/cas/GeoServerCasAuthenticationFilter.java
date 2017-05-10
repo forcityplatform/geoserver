@@ -116,6 +116,7 @@ public class GeoServerCasAuthenticationFilter extends GeoServerPreAuthenticatedU
         } else {
             serviceBaseUrl = request.getRequestURL().toString();
         }
+        serviceBaseUrl = serviceBaseUrl.replace(":80/", "/");
         StringBuffer buff  = new StringBuffer(serviceBaseUrl);
         
         
