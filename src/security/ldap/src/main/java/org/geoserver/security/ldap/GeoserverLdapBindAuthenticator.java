@@ -156,6 +156,9 @@ public class GeoserverLdapBindAuthenticator extends BindAuthenticator {
             }
         } catch (javax.naming.NamingException e) {
             throw LdapUtils.convertLdapException(e);
+        } catch (org.springframework.dao.IncorrectResultSizeDataAccessException e) {
+            logger.debug("User not found " + username);
+            user = null;
         } finally {
             LdapUtils.closeContext(ctx);
         }
